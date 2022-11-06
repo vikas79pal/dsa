@@ -1,0 +1,17 @@
+# subsequence
+# find a specific subsequence in a string eg "ABC"
+arr="ABBBCB"
+temp=""
+def subSeq(arr,temp,ind):
+    if (len(temp)==3 and temp=="ABC"):
+        print(temp)
+        return
+    if (len(temp)>3 or ind>=len(arr)):
+        return
+    # pick
+    temp+=arr[ind]
+    subSeq(arr,temp,ind+1)
+    # not pick
+    temp=temp[:len(temp)-1]
+    subSeq(arr,temp,ind+1)
+subSeq(arr,temp,0)
