@@ -1,0 +1,13 @@
+arr=[1,2,3]
+temp=[]
+def subSeq(arr,temp,ind):
+    if (ind==len(arr)):
+        print(temp)
+        return
+    # pick
+    temp.append(arr[ind])
+    subSeq(arr,temp,ind+1)
+    # not pick
+    temp.pop()
+    subSeq(arr,temp,ind+1)
+subSeq(arr,temp,0)
