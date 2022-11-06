@@ -1,0 +1,43 @@
+arr=[1,2,3,4,5]
+d=3
+# rotate left by 2 pos
+l=len(arr)
+
+# approach 1
+# using temp array
+temp=0
+# for i in range(d,len(arr)):
+#     temp.append(arr[i])
+# for i in range(0,d):
+#     temp.append(arr[i])
+# print(arr)
+
+#approach 2
+# every time shift element by 1 pos .. repeat this untill u reach d
+# for i in range(d):
+#     temp=arr[0]
+#     arr[0:len(arr)-1]=arr[1:len(arr)]
+#     arr[len(arr)-1]=temp
+# print(arr)
+
+# approach 3 
+#in space
+# first reverse the array
+# then reverse the right k elements of an array and n-k elements
+for i in range(len(arr)//2):
+    temp=arr[i]
+    arr[i]=arr[len(arr)-1-i]
+
+for i in range(d//2):
+    
+    temp=arr[i+len(arr)-d]
+    arr[i+len(arr)-d]=arr[len(arr)-1-i]
+    arr[len(arr)-1-i]=temp
+
+
+
+for i in range((len(arr)-d)//2):
+    temp=arr[i]
+    arr[i]=arr[len(arr)-d-i-1]
+    arr[len(arr)-d-i-1]=temp
+print(arr)
